@@ -79,7 +79,7 @@ let formData = {}
 if (localStorage.getItem('mailOrderFormData')) {
     formData = JSON.parse(localStorage.getItem('mailOrderFormData'))
     Object.keys(formData).map((key) => {
-        document.querySelector(`input[name="${key}"]`).value = formData[key]
+        document.querySelector(`input[name="${key}"]`).value = formData[key].replace(/\+/, ' ')
     })
 }
 
