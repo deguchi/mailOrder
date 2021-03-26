@@ -3,25 +3,24 @@ html(lang="ja")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title template
+    title かんたんメール注文
     link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap")
     link(rel="stylesheet", href="./index.css")
   body#index
     main
       article
-        section.grid1
-            #itemA
-              div A
-              div AA
-              div AAA
-            #itemB B
-            #itemC C
-        section.grid2
-            .item A
-            .item B
-            .item C
-            .item D
-            .item E
-            .item F
-            .item G
+        section
+          h1 かんたんメール注文
+          form(action="")
+            label(for="mailto") お店のメール
+            input(type="email" name="mailto" required)  
+            label(for="title") 書名
+            input(type="text" name="title" disabled required)  
+            label(for="name") お名前
+            input(type="text" name="name" required)  
+            label(for="tel") 電話番号
+            input(type="tel" name="tel" required)  
+            label(for="email") メールアドレス
+            input(type="email" name="email" required)
+            button メールで注文
     script(src="./js/index.js")
