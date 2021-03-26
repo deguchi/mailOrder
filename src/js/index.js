@@ -25,16 +25,6 @@ const buildQueryString = (params) => {
 	return parts.join('&').replace(/%20/g, '+');
 }
 
-// title
-// author
-// isbn
-// publisher
-// mailto
-// name
-// tel
-// mail
-// reply url
-
 const params = getQueryString()
 
 if (params.title) {
@@ -97,7 +87,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault()
     const subject = `[アプリ注文] ${params.title}`;
     const shopName = 'ホホホ座'
-    const url = `http://hohoho-sv2.calil.jp/wp-admin/admin.php?page=order%26` + buildQueryString(params).replace(/&/g, '%26')
+    const url = `http://hohoho-sv2.calil.jp/wp-admin/admin.php?page=order%26` + buildQueryString(params).replace(/&/g, '%26') + buildQueryString(formData).replace(/&/g, '%26')
     const orderUrl = `https://honto.jp/netstore/search_10${params.isbn}.html?srchf=1&tbty=1`.replace(/&/g, '%26');
     let body = `${shopName} 様
 
