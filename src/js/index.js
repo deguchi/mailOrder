@@ -47,7 +47,7 @@ if (params.title) {
                 case 'tel':
                     e.target.setCustomValidity('電話番号を入れてください。')
                     break
-                case 'email':
+                case 'mail':
                     e.target.setCustomValidity('メールアドレスを入れてください。')
                     break
                 default:
@@ -87,7 +87,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault()
     const subject = `[アプリ注文] ${params.title}`;
     const shopName = 'ホホホ座'
-    const url = `http://hohoho-sv2.calil.jp/wp-admin/admin.php?page=order%26` + buildQueryString(params).replace(/&/g, '%26') + buildQueryString(formData).replace(/&/g, '%26')
+    const url = `http://hohoho-sv2.calil.jp/wp-admin/admin.php?page=order%26` + encodeURIComponent(buildQueryString(params)) + encodeURIComponent(buildQueryString(formData))
     const orderUrl = `https://honto.jp/netstore/search_10${params.isbn}.html?srchf=1&tbty=1`.replace(/&/g, '%26');
     let body = `${shopName} 様
 
@@ -100,7 +100,7 @@ ISBN: ${params.isbn}
 
 注文者: ${formData.name}
 電話番号: ${formData.tel}
-メールアドレス: ${formData.email}
+メールアドレス: ${formData.mail}
 
 honto: ${orderUrl}
 
