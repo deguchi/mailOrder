@@ -26,6 +26,7 @@ const buildQueryString = (params) => {
 }
 
 const params = getQueryString()
+console.log(params)
 
 if (params.title) {
     document.querySelector('input[name="title"]').value = params.title
@@ -69,7 +70,9 @@ if (params.title) {
         e.target.oninput = (e) => e.target.setCustomValidity('')
     })
     input.addEventListener('change', (e) => {
-        formData[e.target.name] = e.target.value
+        if (e.target.name!=='title') {
+            formData[e.target.name] = e.target.value
+        }
         localStorage.setItem('mailOrderFormData', JSON.stringify(formData))
     })
 })
@@ -78,8 +81,9 @@ if (params.title) {
 let formData = {}
 if (localStorage.getItem('mailOrderFormData')) {
     formData = JSON.parse(localStorage.getItem('mailOrderFormData'))
+    delete formData['title']
     Object.keys(formData).map((key) => {
-        if (key!=='title' && document.querySelector(`input[name="${key}"]`)) {
+        if (document.querySelector(`input[name="${key}"]`)) {
             document.querySelector(`input[name="${key}"]`).value = formData[key].replace(/\+/, ' ')
         }
     })
