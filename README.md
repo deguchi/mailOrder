@@ -9,8 +9,13 @@ npm install
 npm start
 ```
 
+## デプロイ
+
+docsフォルダにできた生成物をコミットするとGitHub Pagesに反映される
+
+
 ## デモ
-https://template-npm-scripts.netlify.com/
+https://deguchi.github.io/mailOrder
 
 ## ライセンスについて
 
