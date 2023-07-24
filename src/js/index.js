@@ -94,7 +94,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     const subject = `[アプリ注文] ${params.title}`;
     const shopName = 'ホホホ座'
     const url = `http://hohoho-sv2.calil.jp/wp-admin/admin.php?page=order%26` + encodeURIComponent(buildQueryString(params)) + encodeURIComponent(buildQueryString(formData))
-    const orderUrl = `https://honto.jp/netstore/search_10${params.isbn}.html?srchf=1&tbty=1`.replace(/&/g, '%26');
+    const orderUrl = encodeURIComponent(`https://honto.jp/netstore/search_10${params.isbn}.html?srchf=1&tbty=1`);
     let body = `${shopName} 様
 
 以下の注文をお願いします。
