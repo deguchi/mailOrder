@@ -108,7 +108,8 @@ ISBN: ${params.isbn}
 電話番号: ${formData.tel}
 メールアドレス: ${formData.mail}
 
-honto: ${orderUrl}`;
+honto: ${orderUrl}
+管理用: ${url}`;
     body = body.replace(/\n/g, '%0D%0A')
     window.open(`mailto:${formData.mailto}?&body=${body}&subject=${subject}`)
     window.close()
