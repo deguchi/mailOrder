@@ -9,7 +9,7 @@ function getQueryString() {
 const buildQueryString = (params) => {
 	let parts = [];
 	let add = (key, value) => {
-		parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+		parts.push(key + '=' + value);
 	}
 	for (let key in params) {
    		let param = params[key];
